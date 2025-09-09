@@ -1,0 +1,130 @@
+# Project Information
+site_name: LLM Security Wiki
+site_description: LLM Security Wiki 是一个大语言模型安全知识整合站点，提供有趣又实用的大语言模型安全知识以及其他有帮助的内容，帮助广大爱好者更快更深入地学习大语言模型安全
+site_author: llm-security-demo Team
+site_url: https://llm-security-demo.org
+strict: false
+
+# Repository
+repo_name: 'llm-security-demo/llm-security-demo'
+repo_url: 'https://github.com/llm-security-demo/llm-security-demo'
+edit_uri: 'https://llm-security-demo.org/edit-landing/?ref='
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2025 llm-security-demo Team'
+
+# Contents
+nav:
+  - 简介:
+    - Getting Started: index.md
+    - 关于本项目: intro/about.md
+  - 提示注入:
+    - 简介: prompt-injection/index.md
+  - 数据污染:
+    - 简介: data-poisoning/index.md
+  - 模型倒转:
+    - 简介: model-inversion/index.md
+
+# Theme
+theme:
+  name: null
+  custom_dir: 'mkdocs-material/material/templates'
+  static_templates:
+    - 404.html
+  language: 'zh'
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  include_search_page: false
+  search_index_only: true
+  favicon: 'favicon.ico'
+  icon:
+    logo: 'material/school'
+  features:
+    - content.action.edit
+    - navigation.tabs
+    - navigation.instant
+  font:
+    text: 'Fira Sans'
+    code: 'Fira Mono'
+
+plugins:
+- toggle-sidebar:
+    theme: material
+    toggle_button: all
+
+hooks:
+  - hooks/on_env.py
+
+# Customization
+extra:
+  disqus: 'llm-security-demo'
+  copyright: '<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a>'
+  pagetime: 'on'
+  manifest: 'manifest.webmanifest'
+  githash: ''
+  analytics:
+    provider: google
+    property: UA-124485594-1
+
+extra_javascript:
+  - '_static/js/math-csr.js?math-csr'
+  - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
+
+extra_css:
+  - '_static/css/extra.css?v=16'
+  # - '_static/css/offset-inject-debug.css'
+
+# Extensions
+markdown_extensions:
+  - document-offsets-injection:
+      # debug: true
+  - admonition
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: ""
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
